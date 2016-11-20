@@ -23,15 +23,29 @@ var myApp = angular.module("myApp", []);
 
 myApp.controller('myController', ['$scope', function($scope) {
 
-	var employee = {
-		firstName: "David",
-		lastName: "Rodgers",
-		gender: "Male",
-		image_src: "../content/images/space_monkey.jpg"
-	};
+	var employees = [
+		{
+			firstName: "David",
+			lastName: "Rodgers",
+			gender: "Male",
+			image_src: "../content/images/space_monkey.jpg"
+		},
+		{
+			firstName: "Shi",
+			lastName: "Kim",
+			gender: "Male",
+			image_src: "../content/images/space_monkey.jpg"
+		},
+		{
+			firstName: "Sarah",
+			lastName: "Jones",
+			gender: "Female",
+			image_src: "../content/images/space_monkey.jpg"
+		}
+	]
 
-	$scope.employee = employee;
-	
+	$scope.employees = employees;
+
 }]);
 
 

@@ -12,11 +12,14 @@
   <body>
     <div ng-controller="myController">
       <h1>Employee Information</h1>
-      <img ng-src="{{ employee.image_src }}" style="width:120px; height:150px;"/>
-      <p>First Name: {{ employee.firstName }}</p>
-      <p>Last Name: {{ employee.lastName }}</p>
-      <p>Gender: {{ employee.gender }}</p>
-      <input type="text" ng-model="employee.firstName" />
+      <ul ng-repeat="employee in employees">
+        <li>First Name: {{ employee.firstName }}</li>
+        <li>Last Name: {{ employee.lastName }}</li>
+        <li>Gender: {{ employee.gender }}</li>
+        <img ng-src="{{ employee.image_src }}" style="width:120px; height:150px;"/>
+        <br />
+        <input type="text" ng-model="employee.firstName" />
+      </ul>
     </div>
   </body>
 </html>
