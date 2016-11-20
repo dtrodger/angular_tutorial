@@ -28,23 +28,34 @@ myApp.controller('myController', ['$scope', function($scope) {
 			firstName: "David",
 			lastName: "Rodgers",
 			gender: "Male",
+			votes: 0,
 			image_src: "../content/images/space_monkey.jpg"
 		},
 		{
 			firstName: "Shi",
 			lastName: "Kim",
 			gender: "Male",
+			votes: 0,
 			image_src: "../content/images/space_monkey.jpg"
 		},
 		{
 			firstName: "Sarah",
 			lastName: "Jones",
 			gender: "Female",
+			votes: 0,
 			image_src: "../content/images/space_monkey.jpg"
 		}
 	]
 
 	$scope.employees = employees;
+
+	$scope.upvote = function(employee){
+		employee.votes++;
+	};
+
+	$scope.downvote = function(employee){
+		employee.votes--;
+	};
 
 }]);
 
