@@ -8,8 +8,31 @@ var myApp = angular.module("myApp", []);
 // data attached to the scope is the model
 
 myApp.controller('myController', ['$scope', function($scope) {
-	$scope.message = "AngularJS Tutorial";
+	var employee = {
+		firstName: "David",
+		lastName: "Rodgers",
+		gender: "Male"
+	}
+
+	$scope.employee = employee;
 }]);
+
+// create a module, controller and register controller to module in one line - method chaining
+
+// var myApp = angular
+// 	.module('myApp', [])
+// 	.controller('myController', ['$scope', function($scope) {
+// 	var employee = {
+// 		firstName: "David",
+// 		lastName: "Rodgers",
+// 		gender: "Male"
+// 	}
+
+// 	$scope.employee = employee;
+// }]);
+
+
+
 
 
 
