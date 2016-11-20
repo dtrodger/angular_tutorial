@@ -32,8 +32,8 @@ myApp.controller('myController', ['$scope', function($scope) {
 			image_src: "../content/images/space_monkey.jpg"
 		},
 		{
-			firstName: "Shi",
-			lastName: "Kim",
+			firstName: "shi",
+			lastName: "kim",
 			gender: "Male",
 			votes: 0,
 			image_src: "../content/images/space_monkey.jpg"

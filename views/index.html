@@ -8,13 +8,14 @@
     <script src="../app/js/angular.min.js"></script>
     <script src="../app/js/angular-route.min.js"></script>
     <script src="../app/app.js"></script>
+    <script src="../app/filters/title-case-filter.js"></script>
   </head>
   <body>
     <div ng-controller="myController">
       <h1>Employee Information</h1>
-      <ul ng-repeat="employee in employees">
-        <li>First Name: {{ employee.firstName }}</li>
-        <li>Last Name: {{ employee.lastName }}</li>
+      <ul ng-repeat="employee in employees | limitTo:1:1">
+        <li>First Name: {{ employee.firstName | titlecase }}</li>
+        <li>Last Name: {{ employee.lastName | titlecase}}</li>
         <li>Gender: {{ employee.gender }}</li>
         <img ng-src="{{ employee.image_src }}" style="width:120px; height:150px;"/>
         <br />
