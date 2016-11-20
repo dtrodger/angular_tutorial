@@ -27,42 +27,48 @@ myApp.controller('myController', ['$scope', function($scope) {
 		{
 			firstName: "David",
 			lastName: "Rodgers",
-			gender: "Male",
+			gender: 1,
+			salary: 25000,
 			votes: 0,
 			image_src: "../content/images/space_monkey.jpg"
 		},
 		{
 			firstName: "shi",
 			lastName: "kim",
-			gender: "Male",
+			gender: 2,
+			salary: 90000,
 			votes: 0,
 			image_src: "../content/images/space_monkey.jpg"
 		},
 		{
 			firstName: "Sarah",
 			lastName: "Jones",
-			gender: "Female",
+			gender: 2,
+			salary: 10000,
 			votes: 0,
 			image_src: "../content/images/space_monkey.jpg"
 		},
 		{
 			firstName: "Crab",
 			lastName: "Man",
-			gender: "Female",
+			gender: 3,
+			salary: 93000000,
 			votes: 0,
 			image_src: "../content/images/crab_people.png"
 		},
 		{
 			firstName: "Rachael",
 			lastName: "Thompson",
-			gender: "Female",
+			gender: 2,
+			salary: 75000,
 			votes: 0,
 			image_src: "../content/images/space_monkey.jpg"
 		},
 		{
 			firstName: "Alex",
 			lastName: "Smith",
-			gender: "Female",
+			gender: 1,
+			salary: 50000,
 			votes: 0,
 			image_src: "../content/images/space_monkey.jpg"
 		}
@@ -72,11 +78,11 @@ myApp.controller('myController', ['$scope', function($scope) {
 
 	$scope.orderBy = "firstName";
 
-	$scope.upvote = function(employee){
+	$scope.upvote = function(employee) {
 		employee.votes++;
 	};
 
-	$scope.downvote = function(employee){
+	$scope.downvote = function(employee) {
 		employee.votes--;
 	};
 
