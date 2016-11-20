@@ -44,10 +44,33 @@ myApp.controller('myController', ['$scope', function($scope) {
 			gender: "Female",
 			votes: 0,
 			image_src: "../content/images/space_monkey.jpg"
+		},
+		{
+			firstName: "Crab",
+			lastName: "Man",
+			gender: "Female",
+			votes: 0,
+			image_src: "../content/images/crab_people.png"
+		},
+		{
+			firstName: "Rachael",
+			lastName: "Thompson",
+			gender: "Female",
+			votes: 0,
+			image_src: "../content/images/space_monkey.jpg"
+		},
+		{
+			firstName: "Alex",
+			lastName: "Smith",
+			gender: "Female",
+			votes: 0,
+			image_src: "../content/images/space_monkey.jpg"
 		}
 	]
 
 	$scope.employees = employees;
+
+	$scope.orderBy = "firstName";
 
 	$scope.upvote = function(employee){
 		employee.votes++;
