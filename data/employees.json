@@ -1,5 +1,6 @@
 [
 	{
+		"id":1,
 		"firstName":"David",
 		"lastName":"Rodgers",
 		"gender":1,
@@ -8,6 +9,7 @@
 		"image_src":"../content/images/space_monkey.jpg"
 	},
 	{
+		"id":2,
 		"firstName":"shi",
 		"lastName":"kim","gender":2,
 		"salary":90000,
@@ -15,6 +17,7 @@
 		"image_src":"../content/images/space_monkey.jpg"
 	},
 	{
+		"id":3,
 		"firstName":"Sarah",
 		"lastName":"Jones",
 		"gender":2,
@@ -23,6 +26,7 @@
 		"image_src":"../content/images/space_monkey.jpg"
 	},
 	{
+		"id":4,
 		"firstName":"Crab",
 		"lastName":"Man",
 		"gender":3,
@@ -31,6 +35,7 @@
 		"image_src":"../content/images/crab_people.png"
 	},
 	{
+		"id":5,
 		"firstName":"Rachael",
 		"lastName":"Thompson",
 		"gender":2,
@@ -39,6 +44,7 @@
 		"image_src":"../content/images/space_monkey.jpg"
 	},
 	{
+		"id":6,
 		"firstName":"Alex",
 		"lastName":"Smith",
 		"gender":1,

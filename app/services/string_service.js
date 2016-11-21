@@ -18,7 +18,6 @@ myApp.factory('stringService', function() {
 			}
 
 			return output;
-		};
-	};
-
+		}
+	}
 });

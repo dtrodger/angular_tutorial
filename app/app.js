@@ -1,7 +1,31 @@
 // MODULE is a container for different parts of your app
 // second arguement defines dependencies
 
-var myApp = angular.module("myApp", []);
+var myApp = angular
+
+	.module("myApp", ["ngRoute"])
+
+	.config(["$routeProvider", "$locationProvider", function ($routeProvider, $locationProvider) {
+
+		$routeProvider
+			.when("/employees", {
+				templateUrl: "employees/employees_view.html",
+				controller: "employeesController"
+			})
+			.when("/employees/:id", {
+				templateUrl: "employees/employees_details.html",
+				controller: "employeeDetailsController"
+			})
+			.when("/custom_service", {
+				templateUrl: "custom_service/string_space.html",
+				controller: "customServiceController"
+			})
+			.otherwise({
+				redirectTo: "/employees"
+			})
+
+		// $locationProvider.html5Mode(true);
+	}]);
 
 // CONTROLER is a JS function w/ job to build a model for the view to display
 // register controller to app
@@ -21,7 +45,17 @@ myApp.controller("customServiceController", ["$scope", "stringService", function
 
 }]);
 
-myApp.controller("employeeDirectoryController", ["$scope", "$http", "$log", function ($scope, $http, $log) {
+myApp.controller("anchorScrollController", ["$scope", "$location", "$anchorScroll", function ($scope, $location, $anchorScroll) {
+
+	$scope.scrollTo = function (scrollLocation) {
+		$location.hash(scrollLocation);
+		$anchorScroll.yOffset = 20;
+		$anchorScroll();
+	};
+
+}]);
+
+myApp.controller("employeesController", ["$scope", "$http", "$log", function ($scope, $http, $log) {
 
 	// AJAX
 	// $http.get, .put, .post ect...
@@ -46,14 +80,16 @@ myApp.controller("employeeDirectoryController", ["$scope", "$http", "$log", func
 		$log.info(response);
 	};
 
-	$http({
-		method: "GET",
-		url: "../data/employees.json"
-	}).success(successCallBack, errorCallBack)
+	$http.get(
+		"../data/employees.json"
+	)
+	.success(
+		successCallBack, errorCallBack
+	);
 
 	$scope.orderBy = "firstName";
 
-	$scope.directoryView = "employee_directory/directory_list.html";
+	$scope.directoryView = "employees/employees_list.html";
 
 	$scope.upvote = function (employee) {
 		employee.votes++;
@@ -62,5 +98,25 @@ myApp.controller("employeeDirectoryController", ["$scope", "$http", "$log", func
 	$scope.downvote = function (employee) {
 		employee.votes--;
 	};
+
+}]);
+
+myApp.controller("employeeDetailsController", ["$scope", "$http", "$routeParams", function ($scope, $http, $routeParams) {
+
+	var successCallBack = function (response) {
+		$scope.employee = response[parseInt($routeParams.id) - 1]
+	};
+
+	var errorCallBack = function (response) {
+		$scope.error = response.data;
+	};
+
+	$http
+		.get(
+			"../data/employees.json"
+		)
+		.success(
+			successCallBack, errorCallBack	
+		);
 
 }]);

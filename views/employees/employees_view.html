@@ -1,0 +1,8 @@
+<div>
+  <p>Select Directory View</p>
+  <select ng-model="directoryView">
+    <option value="employees/employees_list.html">List</option>
+    <option value="employees/employees_table.html">Table</option>
+  </select>
+  <div ng-include="directoryView"></div>
+</div>

@@ -16,17 +16,12 @@
   <body>
     <div ng-include="'nav.html'">
     </div>
-    <div ng-controller="customServiceController">
-      <div ng-include="formView">
-      </div>
+    <div ng-controller="anchorScrollController">
+      <button id="top" ng-click="scrollTo('bottom')">Go to bottom of the page</button>
     </div>
-    <div ng-controller="employeeDirectoryController">
-      <p>Select Directory View</p>
-      <select ng-model="directoryView">
-        <option value="employee_directory/directory_list.html">List</option>
-        <option value="employee_directory/directory_table.html">Table</option>
-      </select>
-      <div ng-include="directoryView"></div>
+    <ng-view></ng-view>
+    <div ng-controller="anchorScrollController">
+      <button id="bottom" ng-click="scrollTo('top')">Go to top of the page</button>
     </div>
   </body>
 </html>

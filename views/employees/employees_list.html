@@ -14,6 +14,7 @@ Exact Match: <input type="checkbox" ng-model="exactMatch" />
 <p>Hide Salary: <input type="checkbox" ng-model="hideSalary" /></p>
 <!-- <ul ng-repeat="employee in employees | limitTo:1:1"> -->
 <ul ng-repeat="employee in employees | orderBy : orderBy | filter : searchText : exactMatch">
+  <li><a href="#/employees/{{ employee.id }}">Employee Profile</a></li>
   <li>First Name: {{ employee.firstName | titlecase }}</li>
   <li>Last Name: {{ employee.lastName | titlecase }}</li>
   <li ng-hide="hideSalary">Salary: {{ employee.salary | currency }}</li>

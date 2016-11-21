@@ -1,5 +1,5 @@
 <h1>Employee Information</h1>
-<input type="text" ng-model="searchText" placeholder="Search All Fields" />
+<!-- <input type="text" ng-model="searchText" placeholder="Search All Fields" /> -->
 <input type="text" ng-model="searchText.firstName" placeholder="Search by First Name" />
 <input type="text" ng-model="searchText.lastName" placeholder="Search by Last Name" />
 Exact Match: <input type="checkbox" ng-model="exactMatch" />
@@ -15,6 +15,7 @@ Exact Match: <input type="checkbox" ng-model="exactMatch" />
 <table>
 	<thead>
 		<tr>
+			<th>Profile</th>
 			<th>First Name</th>
 			<th>Last Name</th>
 			<th>Gender</th>
@@ -24,6 +25,9 @@ Exact Match: <input type="checkbox" ng-model="exactMatch" />
 	</thead>
 	<tbody>
 		<tr ng-repeat="employee in employees | orderBy : orderBy | filter : searchText : exactMatch"">
+			<th>
+				<a href="#/employees/{{ employee.id }}">Employee Profile</a>
+			</th>
 			<th>
 				<p>{{ employee.firstName | titlecase }}</p>
 				Rename: <input type="text" ng-model="employee.firstName" />
