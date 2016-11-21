@@ -11,11 +11,17 @@ var myApp = angular.module("myApp", []);
 
 // $scope, $http, $log === services
 
-myApp.controller('customService', ['$scope', function ('$scope') {
+myApp.controller("customServiceController", ["$scope", "stringService", function ($scope, stringService) {
 
-}])
+	$scope.formView = "custom_service/string_space.html";
 
-myApp.controller('employeeDirectory', ['$scope', '$http', '$log', function ($scope, $http, $log) {
+	$scope.transformString = function (input) {
+		$scope.output = stringService.processString(input);
+	};
+
+}]);
+
+myApp.controller("employeeDirectoryController", ["$scope", "$http", "$log", function ($scope, $http, $log) {
 
 	// AJAX
 	// $http.get, .put, .post ect...
@@ -58,9 +64,3 @@ myApp.controller('employeeDirectory', ['$scope', '$http', '$log', function ($sco
 	};
 
 }]);
-
-
-
-
-
-

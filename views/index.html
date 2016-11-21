@@ -8,13 +8,19 @@
     <script src="../app/js/angular.min.js"></script>
     <script src="../app/js/angular-route.min.js"></script>
     <script src="../app/app.js"></script>
-    <script src="../app/filters/title-case-filter.js"></script>
-    <script src="../app/filters/gender-filter.js"></script>
+    <script src="../app/filters/title_case_filter.js"></script>
+    <script src="../app/filters/gender_filter.js"></script>
+    <script src="../app/services/string_service.js"></script>
+
   </head>
   <body>
-    <div ng-controller="employeeDirectory">
-      <div ng-include="'nav.html'">
+    <div ng-include="'nav.html'">
+    </div>
+    <div ng-controller="customServiceController">
+      <div ng-include="formView">
       </div>
+    </div>
+    <div ng-controller="employeeDirectoryController">
       <p>Select Directory View</p>
       <select ng-model="directoryView">
         <option value="employee_directory/directory_list.html">List</option>
