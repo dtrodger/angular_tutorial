@@ -7,7 +7,15 @@ var myApp = angular.module("myApp", []);
 // register controller to app
 // data attached to the scope is the model
 
-myApp.controller('employeeDirectory', ['$scope', '$http', '$log', function($scope, $http, $log) {
+// SERVICE is an object the encapsulates reusable logic - single responsibility principle
+
+// $scope, $http, $log === services
+
+myApp.controller('customService', ['$scope', function ('$scope') {
+
+}])
+
+myApp.controller('employeeDirectory', ['$scope', '$http', '$log', function ($scope, $http, $log) {
 
 	// AJAX
 	// $http.get, .put, .post ect...
@@ -39,7 +47,7 @@ myApp.controller('employeeDirectory', ['$scope', '$http', '$log', function($scop
 
 	$scope.orderBy = "firstName";
 
-	$scope.directoryView = "directory_list.html";
+	$scope.directoryView = "employee_directory/directory_list.html";
 
 	$scope.upvote = function (employee) {
 		employee.votes++;

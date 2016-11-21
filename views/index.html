@@ -15,12 +15,10 @@
     <div ng-controller="employeeDirectory">
       <div ng-include="'nav.html'">
       </div>
-      <p>Select View</p>
+      <p>Select Directory View</p>
       <select ng-model="directoryView">
-        <p>{{ error }}</p>
-        <br />
-        <option value="directory_list.html">List</option>
-        <option value="directory_table.html">Table</option>
+        <option value="employee_directory/directory_list.html">List</option>
+        <option value="employee_directory/directory_table.html">Table</option>
       </select>
       <div ng-include="directoryView"></div>
     </div>
