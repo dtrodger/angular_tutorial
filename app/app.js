@@ -1,93 +1,63 @@
 // MODULE is a container for different parts of your app
 // second arguement defines dependencies
 
-// create a module, controller and register controller to module in one line - method chaining
-
-// var myApp = angular
-// 	.module('myApp', [])
-// 	.controller('myController', ['$scope', function($scope) {
-// 	var employee = {
-// 		firstName: "David",
-// 		lastName: "Rodgers",
-// 		gender: "Male"
-// 	}
-
-// 	$scope.employee = employee;
-// }]);
-
 var myApp = angular.module("myApp", []);
 
 // CONTROLER is a JS function w/ job to build a model for the view to display
 // register controller to app
 // data attached to the scope is the model
 
-myApp.controller('myController', ['$scope', function($scope) {
+// SERVICE is an object the encapsulates reusable logic - single responsibility principle
 
-	var employees = [
-		{
-			firstName: "David",
-			lastName: "Rodgers",
-			gender: 1,
-			salary: 25000,
-			votes: 0,
-			image_src: "../content/images/space_monkey.jpg"
-		},
-		{
-			firstName: "shi",
-			lastName: "kim",
-			gender: 2,
-			salary: 90000,
-			votes: 0,
-			image_src: "../content/images/space_monkey.jpg"
-		},
-		{
-			firstName: "Sarah",
-			lastName: "Jones",
-			gender: 2,
-			salary: 10000,
-			votes: 0,
-			image_src: "../content/images/space_monkey.jpg"
-		},
-		{
-			firstName: "Crab",
-			lastName: "Man",
-			gender: 3,
-			salary: 93000000,
-			votes: 0,
-			image_src: "../content/images/crab_people.png"
-		},
-		{
-			firstName: "Rachael",
-			lastName: "Thompson",
-			gender: 2,
-			salary: 75000,
-			votes: 0,
-			image_src: "../content/images/space_monkey.jpg"
-		},
-		{
-			firstName: "Alex",
-			lastName: "Smith",
-			gender: 1,
-			salary: 50000,
-			votes: 0,
-			image_src: "../content/images/space_monkey.jpg"
-		}
-	]
+// $scope, $http, $log === services
 
-	$scope.employees = employees;
+myApp.controller('customService', ['$scope', function ('$scope') {
+
+}])
+
+myApp.controller('employeeDirectory', ['$scope', '$http', '$log', function ($scope, $http, $log) {
+
+	// AJAX
+	// $http.get, .put, .post ect...
+
+	// handle response from an API... 
+	// function(response) {
+	// 	$scope.attribute = response.data
+	// }
+
+	// $http.get("../data/employees.json").success(function(JSON){
+	// 	$scope.employees = JSON;
+	// })
+
+	var successCallBack = function (response) {
+		// $scope.employees = response.data if requested from API instead of local JSON
+		$scope.employees = response;
+	};
+
+	var errorCallBack = function (response) {
+		$scope.error = response.data;
+		// console logs the response
+		$log.info(response);
+	};
+
+	$http({
+		method: "GET",
+		url: "../data/employees.json"
+	}).success(successCallBack, errorCallBack)
 
 	$scope.orderBy = "firstName";
 
-	$scope.upvote = function(employee) {
+	$scope.directoryView = "employee_directory/directory_list.html";
+
+	$scope.upvote = function (employee) {
 		employee.votes++;
 	};
 
-	$scope.downvote = function(employee) {
+	$scope.downvote = function (employee) {
 		employee.votes--;
 	};
 
 }]);
-
 
 
 

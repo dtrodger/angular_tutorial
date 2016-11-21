@@ -1,0 +1,22 @@
+<table>
+	<tr ng-repeat="employee in employees | orderBy : orderBy | filter : searchText : exactMatch"">
+		<tr>
+			<td>Your String</td>
+			<td>
+				<input type="text" />
+			</td>
+		</tr>
+		<tr>
+			<td>Result</td>
+			<td>
+				<input type="text" />
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td>
+				<input type="button" value="Process String" />
+			</td>
+		</tr>
+	</tr>
+</table>

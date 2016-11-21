@@ -1,0 +1,44 @@
+<h1>Employee Information</h1>
+<input type="text" ng-model="searchText" placeholder="Search All Fields" />
+<input type="text" ng-model="searchText.firstName" placeholder="Search by First Name" />
+<input type="text" ng-model="searchText.lastName" placeholder="Search by Last Name" />
+Exact Match: <input type="checkbox" ng-model="exactMatch" />
+
+<p>Order By:</p>
+<select ng-model="orderBy">
+  <option value="firstName">First Name</option>
+  <option value="lastName">Last Name</option>
+  <option value="gender">Gender</option>
+</select>
+<br />
+<p>Hide Salary: <input type="checkbox" ng-model="hideSalary" /></p>
+<table>
+	<thead>
+		<tr>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>Gender</th>
+			<th>Votes</th>
+			<th>Image</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="employee in employees | orderBy : orderBy | filter : searchText : exactMatch"">
+			<th>
+				<p>{{ employee.firstName | titlecase }}</p>
+				Rename: <input type="text" ng-model="employee.firstName" />
+			</th>
+			<th>{{ employee.lastName | titlecase }}</th>
+			<th ng-hide="hideSalary">{{ employee.salary | currency }}</th>
+			<th>{{ employee.gender | gender }}</th>
+			<th>
+				<p>{{ employee.votes }}</p>
+				<button ng-click="upvote(employee)">Up Vote</button>
+				<button ng-click="downvote(employee)">Down Vote</button>
+			</th>
+			<th>
+				<img ng-src="{{ employee.image_src }}" style="width:120px; height:150px;"/>
+			</th>
+		</tr>
+	</tbody>
+</table>
