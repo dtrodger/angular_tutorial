@@ -21,62 +21,15 @@ var myApp = angular.module("myApp", []);
 // register controller to app
 // data attached to the scope is the model
 
-myApp.controller('myController', ['$scope', function($scope) {
+myApp.controller('employeeDirectory', ['$scope', '$http', function($scope, $http) {
 
-	var employees = [
-		{
-			firstName: "David",
-			lastName: "Rodgers",
-			gender: 1,
-			salary: 25000,
-			votes: 0,
-			image_src: "../content/images/space_monkey.jpg"
-		},
-		{
-			firstName: "shi",
-			lastName: "kim",
-			gender: 2,
-			salary: 90000,
-			votes: 0,
-			image_src: "../content/images/space_monkey.jpg"
-		},
-		{
-			firstName: "Sarah",
-			lastName: "Jones",
-			gender: 2,
-			salary: 10000,
-			votes: 0,
-			image_src: "../content/images/space_monkey.jpg"
-		},
-		{
-			firstName: "Crab",
-			lastName: "Man",
-			gender: 3,
-			salary: 93000000,
-			votes: 0,
-			image_src: "../content/images/crab_people.png"
-		},
-		{
-			firstName: "Rachael",
-			lastName: "Thompson",
-			gender: 2,
-			salary: 75000,
-			votes: 0,
-			image_src: "../content/images/space_monkey.jpg"
-		},
-		{
-			firstName: "Alex",
-			lastName: "Smith",
-			gender: 1,
-			salary: 50000,
-			votes: 0,
-			image_src: "../content/images/space_monkey.jpg"
-		}
-	]
-
-	$scope.employees = employees;
+	$http.get('../data/employees.json').success(function(JSON){
+		$scope.employees = JSON;
+	})
 
 	$scope.orderBy = "firstName";
+
+	$scope.directoryView = "directory_list.html";
 
 	$scope.upvote = function(employee) {
 		employee.votes++;
@@ -87,7 +40,6 @@ myApp.controller('myController', ['$scope', function($scope) {
 	};
 
 }]);
-
 
 
 
