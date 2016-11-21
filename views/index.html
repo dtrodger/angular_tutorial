@@ -17,6 +17,8 @@
       </div>
       <p>Select View</p>
       <select ng-model="directoryView">
+        <p>{{ error }}</p>
+        <br />
         <option value="directory_list.html">List</option>
         <option value="directory_table.html">Table</option>
       </select>
