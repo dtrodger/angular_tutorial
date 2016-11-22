@@ -6,6 +6,7 @@ var myApp = angular
 	.module("myApp", ["ngRoute"])
 
 	.config(["$routeProvider", "$locationProvider", function ($routeProvider, $locationProvider) {
+		$routeProvider.caseInsensitiveMatch = true;
 
 		$routeProvider
 			.when("/employees", {
@@ -55,7 +56,13 @@ myApp.controller("anchorScrollController", ["$scope", "$location", "$anchorScrol
 
 }]);
 
-myApp.controller("employeesController", ["$scope", "$http", "$log", function ($scope, $http, $log) {
+myApp.controller("employeesController", ["$scope", "$rootScope", "$http", "$log", "$route", function ($scope, $rootScope, $http, $log, $route) {
+
+	// $scope.reload = function () {
+	//	$route.reload();
+	//};
+
+	//$rootScope.global = "THIS VARIABLE IS AVAILABLE TO ALL CONTROLLERS"
 
 	// AJAX
 	// $http.get, .put, .post ect...
