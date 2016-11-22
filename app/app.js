@@ -106,6 +106,32 @@ myApp.controller("employeesController", ["$scope", "$rootScope", "$http", "$log"
 		employee.votes--;
 	};
 
+	// ROUTE CHANGE EVENTS
+	$scope.$on("$routeChangeStart", function (event, next, current) {
+		$log.debug("$routeChangeStart fired");
+		$log.debug(event);
+		$log.debug(next);
+		$log.debug(current);
+	});
+
+	// $scope.$on("$locationChangeStart", function (event, next, current) {
+	// 	$log.debug("$locationChangeStart fired");
+	// });
+
+	// $scope.$on("$routeChangeSuccess", function () {
+	// 	$log.debug("$routeChangeSuccess fired");
+	// });
+
+	// $scope.$on("$locationChangeSuccess", function () {
+	// 	$log.debug("$locationChangeSuccess fired");
+	// });
+	
+	$scope.$on("$routeChangeStart", function (event, next, current) {
+		if (!confirm("Are you sure you want to navigate away from this page to " + next)) {
+			event.preventDefault();
+		}
+	});
+
 }]);
 
 myApp.controller("employeeDetailsController", ["$scope", "$http", "$routeParams", function ($scope, $http, $routeParams) {
